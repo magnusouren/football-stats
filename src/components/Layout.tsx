@@ -104,7 +104,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         </nav>
 
         {/* Main content */}
-        <main className="flex-1 p-6 overflow-y-auto">{children}</main>
+        <main className="flex-1 px-1 py-4 md:p-6 overflow-y-auto">
+          {children}
+        </main>
       </div>
     </div>
   );

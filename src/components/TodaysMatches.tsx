@@ -49,7 +49,7 @@ export const TodaysMatches: React.FC = () => {
         <Table>
           <TableCaption>Todays matches</TableCaption>
           <TableHeader>
-            <TableRow className="bg-accent text-accent-foreground">
+            <TableRow className="">
               <TableHead>Time</TableHead>
               <TableHead>Home</TableHead>
               <TableHead>Away</TableHead>
@@ -61,7 +61,7 @@ export const TodaysMatches: React.FC = () => {
             {data.map((match) => (
               <TableRow
                 key={match.id}
-                className="even:bg-secondary"
+                className="odd:bg-secondary"
                 tabIndex={0}
               >
                 <TableCell>
