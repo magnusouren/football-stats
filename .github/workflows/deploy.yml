@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18 # Endre versjon hvis nødvendig
+          node-version: 20 # Endre versjon hvis nødvendig
 
       # Installer Yarn
       - name: Install Yarn
