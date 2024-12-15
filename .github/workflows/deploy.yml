@@ -1,0 +1,40 @@
+name: Deploy Vite App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Endre til riktig gren for produksjon
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Sjekk ut koden fra repositoriet
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Sett opp Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18 # Endre versjon hvis nødvendig
+
+      # Installer Yarn
+      - name: Install Yarn
+        run: npm install --global yarn
+
+      # Installer avhengigheter og bygg prosjektet
+      - name: Install dependencies and build
+        env:
+          VITE_SECRET_KEY: ${{ secrets.VITE_SECRET_KEY }}
+        run: |
+          yarn install
+          yarn build
+
+      # Deploy til GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist

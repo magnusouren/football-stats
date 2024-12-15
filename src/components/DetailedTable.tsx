@@ -47,11 +47,8 @@ export const DetailedTable: React.FC<DetailedTableProps> = ({
         <TableRow>
           <TableHead className="w-2"></TableHead>
           <TableHead>Team</TableHead>
-          <TableHead className="font-semibold border-r text-center">
-            <span className="hidden sm:inline">Points</span>
-            <span className="sm:hidden">P</span>
-          </TableHead>
-          <TableHead className="text-center">
+
+          <TableHead className="text-center border-l">
             <span className="hidden sm:inline">Played</span>
             <span className="sm:hidden">P</span>
           </TableHead>
@@ -78,6 +75,10 @@ export const DetailedTable: React.FC<DetailedTableProps> = ({
           {data[0].form && (
             <TableHead className="hidden sm:table-cell">Form</TableHead>
           )}
+          <TableHead className="font-semibold border-r text-center">
+            <span className="hidden sm:inline">Points</span>
+            <span className="sm:hidden">P</span>
+          </TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -103,10 +104,10 @@ export const DetailedTable: React.FC<DetailedTableProps> = ({
                 </a>
               </div>
             </TableCell>
-            <TableCell className="font-semibold border-r text-center">
-              {team.points}
+
+            <TableCell className="text-center border-l">
+              {team.playedGames}
             </TableCell>
-            <TableCell className="text-center">{team.playedGames}</TableCell>
             <TableCell className="text-center">{team.won}</TableCell>
             <TableCell className="text-center">{team.draw}</TableCell>
             <TableCell className="text-center border-r">{team.lost}</TableCell>
@@ -132,6 +133,9 @@ export const DetailedTable: React.FC<DetailedTableProps> = ({
                   ))}
               </TableCell>
             )}
+            <TableCell className="font-semibold border-r text-center">
+              {team.points}
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>

@@ -67,12 +67,8 @@ export default function Team() {
       <Card className="mb-6 shadow-lg h-full flex items-center justify-evenly md:justify-between flex-col sm:flex-row ">
         <div className="w-full">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold text-gray-800">
-              {data.name}
-            </CardTitle>
-            <CardDescription className="text-sm text-gray-500">
-              {data.venue}
-            </CardDescription>
+            <CardTitle className="text-2xl font-bold">{data.name}</CardTitle>
+            <CardDescription className="text-sm">{data.venue}</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap items-center space-x-6">

@@ -51,10 +51,11 @@ export const TodaysMatches: React.FC = () => {
           <TableHeader>
             <TableRow className="">
               <TableHead>Time</TableHead>
-              <TableHead>Home</TableHead>
-              <TableHead>Away</TableHead>
-              <TableHead>Score</TableHead>
-              <TableHead>Tournament</TableHead>
+              <TableHead className="hidden md:table-cell">Home</TableHead>
+              <TableHead className="hidden md:table-cell">Away</TableHead>
+              <TableHead className="table-cell md:hidden">Standing</TableHead>
+              <TableHead className="hidden md:table-cell">Score</TableHead>
+              <TableHead className="hidden md:table-cell">Tournament</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -64,44 +65,62 @@ export const TodaysMatches: React.FC = () => {
                 className="odd:bg-secondary"
                 tabIndex={0}
               >
-                <TableCell>
-                  {new Date(match.utcDate).toLocaleTimeString([], {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                  })}
-                  {match.status === MatchStatus.IN_PLAY && (
-                    <span className="ml-2 bg-green-500 rounded-md px-1 py-0.5 text-xs text-white">
-                      Live
-                    </span>
-                  )}
-                  {match.status === MatchStatus.PAUSED && (
-                    <span className="ml-2 bg-yellow-600 rounded-md px-1 py-0.5 text-xs text-white">
-                      Pause
-                    </span>
-                  )}
-                  {match.status === MatchStatus.FINISHED && (
-                    <span className="ml-2 bg-gray-300 rounded-md px-1 py-0.5 text-xs">
-                      Done
-                    </span>
-                  )}
+                <TableCell className="">
+                  <div className="flex gap-x-2 gap-y-0.5 flex-col md:flex-row">
+                    {new Date(match.utcDate).toLocaleTimeString([], {
+                      hour: '2-digit',
+                      minute: '2-digit',
+                    })}
+                    <div className="hidden md:block">
+                      {match.status === MatchStatus.IN_PLAY && (
+                        <div className="bg-green-500 rounded-md px-1 py-0.5 text-xs text-white">
+                          Live
+                        </div>
+                      )}
+                      {match.status === MatchStatus.PAUSED && (
+                        <div className="bg-yellow-600 rounded-md px-1 py-0.5 text-xs text-white">
+                          Pause
+                        </div>
+                      )}
+                      {match.status === MatchStatus.FINISHED && (
+                        <div className="bg-gray-300 rounded-md px-1 py-0.5 text-xs">
+                          Done
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </TableCell>
-                <TableCell>
-                  <a
-                    href={'/team/' + match.homeTeam.id}
-                    className="hover:underline"
-                  >
-                    {match.homeTeam.shortName}
-                  </a>
+                <TableCell className="hidden md:table-cell">
+                  <div className="flex items-center gap-2">
+                    <img
+                      src={match.homeTeam.crest}
+                      alt={match.homeTeam.name}
+                      className="w-5 h-5 self-center"
+                    />
+                    <a
+                      href={`/team/${match.homeTeam.id}`}
+                      className="hover:underline hover:cursor-pointer"
+                    >
+                      {match.homeTeam.shortName}
+                    </a>
+                  </div>
                 </TableCell>
-                <TableCell>
-                  <a
-                    href={'/team/' + match.awayTeam.id}
-                    className="hover:underline"
-                  >
-                    {match.awayTeam.shortName}
-                  </a>
+                <TableCell className="hidden md:table-cell">
+                  <div className="flex items-center gap-2">
+                    <img
+                      src={match.awayTeam.crest}
+                      alt={match.awayTeam.name}
+                      className="w-5 h-5 self-center"
+                    />
+                    <a
+                      href={`/team/${match.awayTeam.id}`}
+                      className="hover:underline hover:cursor-pointer"
+                    >
+                      {match.awayTeam.shortName}
+                    </a>
+                  </div>
                 </TableCell>
-                <TableCell>
+                <TableCell className="hidden md:table-cell">
                   <Tooltip>
                     <TooltipTrigger>
                       {' '}
@@ -118,12 +137,81 @@ export const TodaysMatches: React.FC = () => {
                     </TooltipContent>
                   </Tooltip>
                 </TableCell>
-                <TableCell>
+                <TableCell className="hidden md:table-cell">
                   <a
                     href={'/competition/' + match.competition.id}
-                    className="hover:underline"
+                    className="hover:underline hidden md:inline-block"
                   >
                     {match.competition.name}
+                  </a>
+                </TableCell>
+                <TableCell className="table-cell md:hidden">
+                  <div className="flex gap-4">
+                    <div>
+                      <Tooltip>
+                        <TooltipTrigger>
+                          {match.score.fullTime.home !== null ? (
+                            <p
+                              className={`bg-popover p-1 rounded-t-full text-popover-foreground border-t border-r border-l`}
+                            >
+                              {match.score.fullTime.home}
+                            </p>
+                          ) : (
+                            <p className="mb-2 p-1 ml-0.5 text-center">-</p>
+                          )}
+                          {match.score.fullTime.away !== null ? (
+                            <p className="bg-popover p-1 rounded-b-full text-popover-foreground border-b border-r border-l">
+                              {match.score.fullTime.away}
+                            </p>
+                          ) : (
+                            <p className="p-1 ml-0.5">-</p>
+                          )}
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>
+                            Updated:{' '}
+                            {new Date(match.lastUpdated).toLocaleTimeString()}
+                          </p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </div>
+                    <div className="mt-1">
+                      <div className="flex items-center gap-2 mb-2">
+                        <img
+                          src={match.homeTeam.crest}
+                          alt={match.homeTeam.name}
+                          className="w-5 h-5 self-center"
+                        />
+                        <a
+                          href={`/team/${match.homeTeam.id}`}
+                          className="hover:underline hover:cursor-pointer"
+                        >
+                          {match.homeTeam.shortName}
+                        </a>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <img
+                          src={match.awayTeam.crest}
+                          alt={match.awayTeam.name}
+                          className="w-5 h-5 self-center"
+                        />
+                        <a
+                          href={`/team/${match.awayTeam.id}`}
+                          className="hover:underline hover:cursor-pointer"
+                        >
+                          {match.awayTeam.shortName}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </TableCell>
+                <TableCell>
+                  <a href={'/competition/' + match.competition.id}>
+                    <img
+                      src={match.competition.emblem}
+                      alt={match.competition.name}
+                      className="h-8 m-auto hover:cursor-pointer"
+                    />
                   </a>
                 </TableCell>
               </TableRow>
