@@ -1,3 +1,5 @@
+const BASE_URL = import.meta.env.VIT$E_BASE_URL;
+
 export const fetchTable = async (
   competitionId: string,
   year: number,
@@ -6,14 +8,17 @@ export const fetchTable = async (
   let response;
   if (CL) {
     // CL is a boolean - quick fix for the Champions League
-    response = await fetch(`/api/competitions/${competitionId}/standings`, {
-      headers: {
-        'X-Auth-Token': `${import.meta.env.VITE_API_KEY}`,
-      },
-    });
+    response = await fetch(
+      `${BASE_URL}/competitions/${competitionId}/standings`,
+      {
+        headers: {
+          'X-Auth-Token': `${import.meta.env.VITE_API_KEY}`,
+        },
+      }
+    );
   } else {
     response = await fetch(
-      `/api/competitions/${competitionId}/standings?season=${year}`,
+      `${BASE_URL}/competitions/${competitionId}/standings?season=${year}`,
       {
         headers: {
           'X-Auth-Token': `${import.meta.env.VITE_API_KEY}`,

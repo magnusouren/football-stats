@@ -3,9 +3,9 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
-  base: '/football-stats/',
+  base: mode === 'production' ? '/football-stats/' : '/', // Bruk base kun i produksjon
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -20,4 +20,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));
