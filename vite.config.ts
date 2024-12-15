@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
   plugins: [react()],
-  base: mode === 'production' ? '/football-stats/' : '/', // Bruk base kun i produksjon
+  base: '/football-stats/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

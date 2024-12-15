@@ -12,20 +12,23 @@ const Competition = lazy(() => import('./pages/Competition'));
 // Definer ruter
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/football-stats/',
     element: <Home />,
   },
   {
-    path: '/team/:teamId',
+    path: '/football-stats/team/:teamId',
     element: <Team />,
   },
-  { path: '/competition/:competitionId', element: <Competition /> },
   {
-    path: '/settings',
+    path: '/football-stats/competition/:competitionId',
+    element: <Competition />,
+  },
+  {
+    path: '/football-stats/settings',
     element: <Settings />,
   },
   {
-    path: '/about',
+    path: '/football-stats/about',
     element: <About />,
   },
   {
