@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.VIT$E_BASE_URL;
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export const fetchTable = async (
   competitionId: string,
