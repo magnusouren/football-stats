@@ -6,7 +6,7 @@ export default function Home() {
       <h1 className=" font-bold text-2xl mb-12">F⚽︎⚽︎tball Stats</h1>
 
       <p className="">
-        This is a simple Football Stats app as a hoby project to visualize some
+        This is a simple Football Stats app as a hobby project to visualize some
         data. All data is fetched from{' '}
         <a
           href="https://www.football-data.org/"
