@@ -1,11 +1,7 @@
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+const BASE_URL = '/api'; // Lokalt og i produksjon peker dette til serverless funksjonen
 
 export const fetchCompetitions = async () => {
-  const response = await fetch(`${BASE_URL}/competitions/`, {
-    headers: {
-      'X-Auth-Token': `${import.meta.env.VITE_API_KEY}`,
-    },
-  });
+  const response = await fetch(`${BASE_URL}/competitions/`); // Ingen X-Auth-Token nødvendig i frontend
   const data = await response.json();
 
   const filteredData = data.competitions.filter(

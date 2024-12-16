@@ -1,11 +1,7 @@
-const BASE_URL = import.meta.env.VITE_BASE_URL;
+const BASE_URL = '/api';
 
 export const fetchTodaysMatches = async () => {
-  const response = await fetch(`${BASE_URL}/matches/`, {
-    headers: {
-      'X-Auth-Token': `${import.meta.env.VITE_API_KEY}`,
-    },
-  });
+  const response = await fetch(`${BASE_URL}/matches/`);
   const data = await response.json();
 
   return data.matches;
