@@ -1,0 +1,42 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  version="1.1"
+  width="256"
+  height="256"
+  viewBox="0 0 256 256"
+  xml:space="preserve"
+  className="w-8 h-8 text-blue-500"
+>
+  <defs></defs>
+  <g
+    style="stroke: currentColor; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;"
+    transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)"
+  >
+    <path
+      d="M 88 75.624 H 2 c -1.104 0 -2 -0.896 -2 -2 V 16.376 c 0 -1.104 0.896 -2 2 -2 h 86 c 1.104 0 2 0.896 2 2 v 57.248 C 90 74.729 89.104 75.624 88 75.624 z M 4 71.624 h 82 V 18.376 H 4 V 71.624 z"
+      style="fill: currentColor;"
+      transform="matrix(1 0 0 1 0 0)"
+    />
+    <path
+      d="M 45 60.485 c -8.539 0 -15.485 -6.946 -15.485 -15.485 c 0 -8.539 6.947 -15.485 15.485 -15.485 c 8.539 0 15.485 6.947 15.485 15.485 C 60.485 53.539 53.539 60.485 45 60.485 z M 45 33.515 c -6.333 0 -11.485 5.152 -11.485 11.485 S 38.667 56.485 45 56.485 S 56.485 51.333 56.485 45 S 51.333 33.515 45 33.515 z"
+      style="fill: currentColor;"
+      transform="matrix(1 0 0 1 0 0)"
+    />
+    <path
+      d="M 13.143 60.485 H 2 c -1.104 0 -2 -0.896 -2 -2 V 31.515 c 0 -1.104 0.896 -2 2 -2 h 11.143 c 1.104 0 2 0.896 2 2 v 26.971 C 15.143 59.59 14.248 60.485 13.143 60.485 z M 4 56.485 h 7.143 V 33.515 H 4 V 56.485 z"
+      style="fill: currentColor;"
+      transform="matrix(1 0 0 1 0 0)"
+    />
+    <path
+      d="M 88 60.485 H 76.857 c -1.104 0 -2 -0.896 -2 -2 V 31.515 c 0 -1.104 0.896 -2 2 -2 H 88 c 1.104 0 2 0.896 2 2 v 26.971 C 90 59.59 89.104 60.485 88 60.485 z M 78.857 56.485 H 86 V 33.515 h -7.143 V 56.485 z"
+      style="fill: currentColor;"
+      transform="matrix(1 0 0 1 0 0)"
+    />
+    <path
+      d="M 45 75.624 c -1.104 0 -2 -0.896 -2 -2 V 16.376 c 0 -1.104 0.896 -2 2 -2 s 2 0.896 2 2 v 57.248 C 47 74.729 46.104 75.624 45 75.624 z"
+      style="fill: currentColor;"
+      transform="matrix(1 0 0 1 0 0)"
+    />
+  </g>
+</svg>
